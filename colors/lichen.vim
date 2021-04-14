@@ -15,23 +15,6 @@ let g:colors_name = "lichen"
 let s:lichen_vim_version = "0.0.1"
 set background=dark
 
-let s:lichen0_gui = "#2E3440"
-let s:lichen1_gui = "#3B4252"
-let s:lichen2_gui = "#434C5E"
-let s:lichen3_gui = "#4C566A"
-let s:lichen3_gui_bright = "#616E88"
-let s:lichen4_gui = "#D8DEE9"
-let s:lichen5_gui = "#E5E9F0"
-let s:lichen6_gui = "#ECEFF4"
-let s:lichen7_gui = "#8FBCBB"
-let s:lichen8_gui = "#88C0D0"
-let s:lichen9_gui = "#81A1C1"
-let s:lichen10_gui = "#5E81AC"
-let s:lichen11_gui = "#BF616A"
-let s:lichen12_gui = "#D08770"
-let s:lichen13_gui = "#EBCB8B"
-let s:lichen14_gui = "#A3BE8C"
-let s:lichen15_gui = "#B48EAD"
 
 let s:lichen1_term = "0" " black
 let s:lichen3_term = "245" " grey 54 (vim numbers and window lines)
@@ -91,13 +74,6 @@ function! s:logWarning(msg)
   echohl None
 endfunction
 
-if exists("g:lichen_comment_brightness")
-  call s:logWarning('Variable g:lichen_comment_brightness has been deprecated and will be removed in version 1.0.0!' .
-                   \' The comment color brightness has been increased by 10% by default.' .
-                   \' Please see https://github.com/arcticicestudio/lichen-vim/issues/145 for more details.')
-  let g:lichen_comment_brightness = 10
-endif
-
 if !exists("g:lichen_uniform_diff_background")
   let g:lichen_uniform_diff_background = 0
 endif
@@ -140,157 +116,132 @@ call s:hi("Italic", "", "", "", "", s:italic, "")
 call s:hi("Underline", "", "", "", "", s:underline, "")
 
 "+--- Editor ---+
-call s:hi("ColorColumn", "", s:lichen1_gui, "NONE", s:lichen1_term, "", "")
-call s:hi("Cursor", s:lichen0_gui, s:lichen4_gui, "", "NONE", "", "")
-call s:hi("CursorLine", "", s:lichen1_gui, "NONE", s:lichen1_term, "NONE", "")
-call s:hi("Error", s:lichen4_gui, s:lichen11_gui, "", s:lichen11_term, "", "")
-call s:hi("iCursor", s:lichen0_gui, s:lichen4_gui, "", "NONE", "", "")
-call s:hi("LineNr", s:lichen3_gui, "NONE", s:lichen3_term, "NONE", "", "")
-call s:hi("MatchParen", s:lichen8_gui, s:lichen3_gui, s:lichen8_term, s:lichen3_term, "", "")
-call s:hi("NonText", s:lichen2_gui, "", s:lichen3_term, "", "", "")
-call s:hi("Normal", s:lichen4_gui, s:lichen0_gui, s:lichen5_term, "NONE", "", "")
-call s:hi("PMenu", s:lichen4_gui, s:lichen2_gui, "NONE", s:lichen1_term, "NONE", "")
-call s:hi("PmenuSbar", s:lichen4_gui, s:lichen2_gui, "NONE", s:lichen1_term, "", "")
-call s:hi("PMenuSel", s:lichen8_gui, s:lichen3_gui, s:lichen8_term, s:lichen3_term, "", "")
-call s:hi("PmenuThumb", s:lichen8_gui, s:lichen3_gui, "NONE", s:lichen3_term, "", "")
-call s:hi("SpecialKey", s:lichen3_gui, "", s:lichen3_term, "", "", "")
-call s:hi("SpellBad", s:lichen11_gui, s:lichen0_gui, s:lichen11_term, "NONE", "undercurl", s:lichen11_gui)
-call s:hi("SpellCap", s:lichen13_gui, s:lichen0_gui, s:lichen13_term, "NONE", "undercurl", s:lichen13_gui)
-call s:hi("SpellLocal", s:lichen5_gui, s:lichen0_gui, s:lichen5_term, "NONE", "undercurl", s:lichen5_gui)
-call s:hi("SpellRare", s:lichen6_gui, s:lichen0_gui, s:lichen6_term, "NONE", "undercurl", s:lichen6_gui)
-call s:hi("Visual", "", s:lichen2_gui, "", s:lichen1_term, "", "")
-call s:hi("VisualNOS", "", s:lichen2_gui, "", s:lichen1_term, "", "")
+call s:hi("ColorColumn", "", "", "NONE", s:lichen1_term, "", "")
+call s:hi("Cursor", "", "", "", "NONE", "", "")
+call s:hi("CursorLine", "", "", "NONE", s:lichen1_term, "NONE", "")
+call s:hi("Error", "", "", "", s:lichen11_term, "", "")
+call s:hi("iCursor", "", "", "", "NONE", "", "")
+call s:hi("LineNr", "", "NONE", s:lichen3_term, "NONE", "", "")
+call s:hi("MatchParen", "", "", s:lichen8_term, s:lichen3_term, "", "")
+call s:hi("NonText", "", "", s:lichen3_term, "", "", "")
+call s:hi("Normal", "", "", s:lichen5_term, "NONE", "", "")
+call s:hi("PMenu", "", "", "NONE", s:lichen1_term, "NONE", "")
+call s:hi("PmenuSbar", "", "", "NONE", s:lichen1_term, "", "")
+call s:hi("PMenuSel", "", "", s:lichen8_term, s:lichen3_term, "", "")
+call s:hi("PmenuThumb", "", "", "NONE", s:lichen3_term, "", "")
+call s:hi("SpecialKey", "", "", s:lichen3_term, "", "", "")
+call s:hi("SpellBad", "", "", s:lichen11_term, "NONE", "undercurl", "")
+call s:hi("SpellCap", "", "", s:lichen13_term, "NONE", "undercurl", "")
+call s:hi("SpellLocal", "", "", s:lichen5_term, "NONE", "undercurl", "")
+call s:hi("SpellRare", "", "", s:lichen6_term, "NONE", "undercurl", "")
+call s:hi("Visual", "", "", "", s:lichen1_term, "", "")
+call s:hi("VisualNOS", "", "", "", s:lichen1_term, "", "")
 "+- Neovim Support -+
-call s:hi("healthError", s:lichen11_gui, s:lichen1_gui, s:lichen11_term, s:lichen1_term, "", "")
-call s:hi("healthSuccess", s:lichen14_gui, s:lichen1_gui, s:lichen14_term, s:lichen1_term, "", "")
-call s:hi("healthWarning", s:lichen13_gui, s:lichen1_gui, s:lichen13_term, s:lichen1_term, "", "")
-call s:hi("TermCursorNC", "", s:lichen1_gui, "", s:lichen1_term, "", "")
-
-"+- Vim 8 Terminal Colors -+
-if has('terminal')
-  let g:terminal_ansi_colors = [s:lichen1_gui, s:lichen11_gui, s:lichen14_gui, s:lichen13_gui, s:lichen9_gui, s:lichen15_gui, s:lichen8_gui, s:lichen5_gui, s:lichen3_gui, s:lichen11_gui, s:lichen14_gui, s:lichen13_gui, s:lichen9_gui, s:lichen15_gui, s:lichen7_gui, s:lichen6_gui]
-endif
-
-"+- Neovim Terminal Colors -+
-if has('nvim')
-  let g:terminal_color_0 = s:lichen1_gui
-  let g:terminal_color_1 = s:lichen11_gui
-  let g:terminal_color_2 = s:lichen14_gui
-  let g:terminal_color_3 = s:lichen13_gui
-  let g:terminal_color_4 = s:lichen9_gui
-  let g:terminal_color_5 = s:lichen15_gui
-  let g:terminal_color_6 = s:lichen8_gui
-  let g:terminal_color_7 = s:lichen5_gui
-  let g:terminal_color_8 = s:lichen3_gui
-  let g:terminal_color_9 = s:lichen11_gui
-  let g:terminal_color_10 = s:lichen14_gui
-  let g:terminal_color_11 = s:lichen13_gui
-  let g:terminal_color_12 = s:lichen9_gui
-  let g:terminal_color_13 = s:lichen15_gui
-  let g:terminal_color_14 = s:lichen7_gui
-  let g:terminal_color_15 = s:lichen6_gui
-endif
+call s:hi("healthError", "", "", s:lichen11_term, s:lichen1_term, "", "")
+call s:hi("healthSuccess", "", "", s:lichen14_term, s:lichen1_term, "", "")
+call s:hi("healthWarning", "", "", s:lichen13_term, s:lichen1_term, "", "")
+call s:hi("TermCursorNC", "", "", "", s:lichen1_term, "", "")
 
 "+--- Gutter ---+
-call s:hi("CursorColumn", "", s:lichen1_gui, "NONE", s:lichen1_term, "", "")
+call s:hi("CursorColumn", "", "", "NONE", s:lichen1_term, "", "")
 if g:lichen_cursor_line_number_background == 0
-  call s:hi("CursorLineNr", s:lichen4_gui, "", "NONE", "", "NONE", "")
+  call s:hi("CursorLineNr", "", "", "NONE", "", "NONE", "")
 else
-  call s:hi("CursorLineNr", s:lichen4_gui, s:lichen1_gui, "NONE", s:lichen1_term, "NONE", "")
+  call s:hi("CursorLineNr", "", "", "NONE", s:lichen1_term, "NONE", "")
 endif
-call s:hi("Folded", s:lichen3_gui, s:lichen1_gui, s:lichen3_term, s:lichen1_term, s:bold, "")
-call s:hi("FoldColumn", s:lichen3_gui, s:lichen0_gui, s:lichen3_term, "NONE", "", "")
-call s:hi("SignColumn", s:lichen1_gui, s:lichen0_gui, s:lichen1_term, "NONE", "", "")
+call s:hi("Folded", "", "", s:lichen3_term, s:lichen1_term, s:bold, "")
+call s:hi("FoldColumn", "", "", s:lichen3_term, "NONE", "", "")
+call s:hi("SignColumn", "", "", s:lichen1_term, "NONE", "", "")
 
 "+--- Navigation ---+
-call s:hi("Directory", s:lichen8_gui, "", s:lichen8_term, "NONE", "", "")
+call s:hi("Directory", "", "", s:lichen8_term, "NONE", "", "")
 
 "+--- Prompt/Status ---+
-call s:hi("EndOfBuffer", s:lichen1_gui, "", s:lichen1_term, "NONE", "", "")
-call s:hi("ErrorMsg", s:lichen4_gui, s:lichen11_gui, "NONE", s:lichen11_term, "", "")
-call s:hi("ModeMsg", s:lichen4_gui, "", "", "", "", "")
-call s:hi("MoreMsg", s:lichen8_gui, "", s:lichen8_term, "", "", "")
-call s:hi("Question", s:lichen4_gui, "", "NONE", "", "", "")
+call s:hi("EndOfBuffer", "", "", s:lichen1_term, "NONE", "", "")
+call s:hi("ErrorMsg", "", "", "NONE", s:lichen11_term, "", "")
+call s:hi("ModeMsg", "", "", "", "", "", "")
+call s:hi("MoreMsg", "", "", s:lichen8_term, "", "", "")
+call s:hi("Question", "", "", "NONE", "", "", "")
 if g:lichen_uniform_status_lines == 0
-  call s:hi("StatusLine", s:lichen8_gui, s:lichen3_gui, s:lichen8_term, s:lichen3_term, "NONE", "")
-  call s:hi("StatusLineNC", s:lichen4_gui, s:lichen1_gui, "NONE", s:lichen1_term, "NONE", "")
-  call s:hi("StatusLineTerm", s:lichen8_gui, s:lichen3_gui, s:lichen8_term, s:lichen3_term, "NONE", "")
-  call s:hi("StatusLineTermNC", s:lichen4_gui, s:lichen1_gui, "NONE", s:lichen1_term, "NONE", "")
+  call s:hi("StatusLine", "", "", s:lichen8_term, s:lichen3_term, "NONE", "")
+  call s:hi("StatusLineNC", "", "", "NONE", s:lichen1_term, "NONE", "")
+  call s:hi("StatusLineTerm", "", "", s:lichen8_term, s:lichen3_term, "NONE", "")
+  call s:hi("StatusLineTermNC", "", "", "NONE", s:lichen1_term, "NONE", "")
 else
-  call s:hi("StatusLine", s:lichen8_gui, s:lichen3_gui, s:lichen8_term, s:lichen3_term, "NONE", "")
-  call s:hi("StatusLineNC", s:lichen4_gui, s:lichen3_gui, "NONE", s:lichen3_term, "NONE", "")
-  call s:hi("StatusLineTerm", s:lichen8_gui, s:lichen3_gui, s:lichen8_term, s:lichen3_term, "NONE", "")
-  call s:hi("StatusLineTermNC", s:lichen4_gui, s:lichen3_gui, "NONE", s:lichen3_term, "NONE", "")
+  call s:hi("StatusLine", "", "", s:lichen8_term, s:lichen3_term, "NONE", "")
+  call s:hi("StatusLineNC", "", "", "NONE", s:lichen3_term, "NONE", "")
+  call s:hi("StatusLineTerm", "", "", s:lichen8_term, s:lichen3_term, "NONE", "")
+  call s:hi("StatusLineTermNC", "", "", "NONE", s:lichen3_term, "NONE", "")
 endif
-call s:hi("WarningMsg", s:lichen0_gui, s:lichen13_gui, s:lichen1_term, s:lichen13_term, "", "")
-call s:hi("WildMenu", s:lichen8_gui, s:lichen1_gui, s:lichen8_term, s:lichen1_term, "", "")
+call s:hi("WarningMsg", "", "", s:lichen1_term, s:lichen13_term, "", "")
+call s:hi("WildMenu", "", "", s:lichen8_term, s:lichen1_term, "", "")
 
 "+--- Search ---+
-call s:hi("IncSearch", s:lichen6_gui, s:lichen10_gui, s:lichen6_term, s:lichen10_term, s:underline, "")
-call s:hi("Search", s:lichen1_gui, s:lichen8_gui, s:lichen1_term, s:lichen8_term, "NONE", "")
+call s:hi("IncSearch", "", "", s:lichen6_term, s:lichen10_term, s:underline, "")
+call s:hi("Search", "", "", s:lichen1_term, s:lichen8_term, "NONE", "")
 
 "+--- Tabs ---+
-call s:hi("TabLine", s:lichen4_gui, s:lichen1_gui, "NONE", s:lichen1_term, "NONE", "")
-call s:hi("TabLineFill", s:lichen4_gui, s:lichen1_gui, "NONE", s:lichen1_term, "NONE", "")
-call s:hi("TabLineSel", s:lichen8_gui, s:lichen3_gui, s:lichen8_term, s:lichen3_term, "NONE", "")
+call s:hi("TabLine", "", "", "NONE", s:lichen1_term, "NONE", "")
+call s:hi("TabLineFill", "", "", "NONE", s:lichen1_term, "NONE", "")
+call s:hi("TabLineSel", "", "", s:lichen8_term, s:lichen3_term, "NONE", "")
 
 "+--- Window ---+
-call s:hi("Title", s:lichen4_gui, "", "NONE", "", "NONE", "")
+call s:hi("Title", "", "", "NONE", "", "NONE", "")
 
 if g:lichen_bold_vertical_split_line == 0
-  call s:hi("VertSplit", s:lichen2_gui, s:lichen0_gui, s:lichen3_term, "NONE", "NONE", "")
+  call s:hi("VertSplit", "", "", s:lichen3_term, "NONE", "NONE", "")
 else
-  call s:hi("VertSplit", s:lichen2_gui, s:lichen1_gui, s:lichen3_term, s:lichen1_term, "NONE", "")
+  call s:hi("VertSplit", "", "", s:lichen3_term, s:lichen1_term, "NONE", "")
 endif
 
 "+----------------------+
 "+ Language Base Groups +
 "+----------------------+
-call s:hi("Boolean", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Character", s:lichen14_gui, "", s:lichen14_term, "", "", "")
-call s:hi("Comment", s:lichen3_gui_bright, "", s:lichen3_term, "", s:italicize_comments, "")
-call s:hi("Conditional", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Constant", s:lichen4_gui, "", "NONE", "", "", "")
-call s:hi("Define", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Delimiter", s:lichen6_gui, "", s:lichen6_term, "", "", "")
-call s:hi("Exception", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Float", s:lichen15_gui, "", s:lichen15_term, "", "", "")
-call s:hi("Function", s:lichen8_gui, "", s:lichen8_term, "", "", "")
-call s:hi("Identifier", s:lichen4_gui, "", "NONE", "", "NONE", "")
-call s:hi("Include", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Keyword", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Label", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Number", s:lichen15_gui, "", s:lichen15_term, "", "", "")
-call s:hi("Operator", s:lichen9_gui, "", s:lichen9_term, "", "NONE", "")
-call s:hi("PreProc", s:lichen9_gui, "", s:lichen9_term, "", "NONE", "")
-call s:hi("Repeat", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Special", s:lichen4_gui, "", "NONE", "", "", "")
-call s:hi("SpecialChar", s:lichen13_gui, "", s:lichen13_term, "", "", "")
-call s:hi("SpecialComment", s:lichen8_gui, "", s:lichen8_term, "", s:italicize_comments, "")
-call s:hi("Statement", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("StorageClass", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("String", s:lichen14_gui, "", s:lichen14_term, "", "", "")
-call s:hi("Structure", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("Tag", s:lichen4_gui, "", "", "", "", "")
-call s:hi("Todo", s:lichen13_gui, "NONE", s:lichen13_term, "NONE", "", "")
-call s:hi("Type", s:lichen9_gui, "", s:lichen9_term, "", "NONE", "")
-call s:hi("Typedef", s:lichen9_gui, "", s:lichen9_term, "", "", "")
+call s:hi("Boolean", "", "", s:lichen9_term, "", "", "")
+call s:hi("Character", "", "", s:lichen14_term, "", "", "")
+call s:hi("Comment", "", "", s:lichen3_term, "", s:italicize_comments, "")
+call s:hi("Conditional", "", "", s:lichen9_term, "", "", "")
+call s:hi("Constant", "", "", "NONE", "", "", "")
+call s:hi("Define", "", "", s:lichen9_term, "", "", "")
+call s:hi("Delimiter", "", "", s:lichen6_term, "", "", "")
+call s:hi("Exception", "", "", s:lichen9_term, "", "", "")
+call s:hi("Float", "", "", s:lichen15_term, "", "", "")
+call s:hi("Function", "", "", s:lichen8_term, "", "", "")
+call s:hi("Identifier", "", "", "NONE", "", "NONE", "")
+call s:hi("Include", "", "", s:lichen9_term, "", "", "")
+call s:hi("Keyword", "", "", s:lichen9_term, "", "", "")
+call s:hi("Label", "", "", s:lichen9_term, "", "", "")
+call s:hi("Number", "", "", s:lichen15_term, "", "", "")
+call s:hi("Operator", "", "", s:lichen9_term, "", "NONE", "")
+call s:hi("PreProc", "", "", s:lichen9_term, "", "NONE", "")
+call s:hi("Repeat", "", "", s:lichen9_term, "", "", "")
+call s:hi("Special", "", "", "NONE", "", "", "")
+call s:hi("SpecialChar", "", "", s:lichen13_term, "", "", "")
+call s:hi("SpecialComment", "", "", s:lichen8_term, "", s:italicize_comments, "")
+call s:hi("Statement", "", "", s:lichen9_term, "", "", "")
+call s:hi("StorageClass", "", "", s:lichen9_term, "", "", "")
+call s:hi("String", "", "", s:lichen14_term, "", "", "")
+call s:hi("Structure", "", "", s:lichen9_term, "", "", "")
+call s:hi("Tag", "", "", "", "", "", "")
+call s:hi("Todo", "", "NONE", s:lichen13_term, "NONE", "", "")
+call s:hi("Type", "", "", s:lichen9_term, "", "NONE", "")
+call s:hi("Typedef", "", "", s:lichen9_term, "", "", "")
 hi! link Macro Define
 hi! link PreCondit PreProc
 
 "+-----------+
 "+ Languages +
 "+-----------+
-call s:hi("asciidocAttributeEntry", s:lichen10_gui, "", s:lichen10_term, "", "", "")
-call s:hi("asciidocAttributeList", s:lichen10_gui, "", s:lichen10_term, "", "", "")
-call s:hi("asciidocAttributeRef", s:lichen10_gui, "", s:lichen10_term, "", "", "")
-call s:hi("asciidocHLabel", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("asciidocListingBlock", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("asciidocMacroAttributes", s:lichen8_gui, "", s:lichen8_term, "", "", "")
-call s:hi("asciidocOneLineTitle", s:lichen8_gui, "", s:lichen8_term, "", "", "")
-call s:hi("asciidocPassthroughBlock", s:lichen9_gui, "", s:lichen9_term, "", "", "")
-call s:hi("asciidocQuotedMonospaced", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("asciidocTriplePlusPassthrough", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("asciidocAttributeEntry", "", "", s:lichen10_term, "", "", "")
+call s:hi("asciidocAttributeList", "", "", s:lichen10_term, "", "", "")
+call s:hi("asciidocAttributeRef", "", "", s:lichen10_term, "", "", "")
+call s:hi("asciidocHLabel", "", "", s:lichen9_term, "", "", "")
+call s:hi("asciidocListingBlock", "", "", s:lichen7_term, "", "", "")
+call s:hi("asciidocMacroAttributes", "", "", s:lichen8_term, "", "", "")
+call s:hi("asciidocOneLineTitle", "", "", s:lichen8_term, "", "", "")
+call s:hi("asciidocPassthroughBlock", "", "", s:lichen9_term, "", "", "")
+call s:hi("asciidocQuotedMonospaced", "", "", s:lichen7_term, "", "", "")
+call s:hi("asciidocTriplePlusPassthrough", "", "", s:lichen7_term, "", "", "")
 hi! link asciidocAdmonition Keyword
 hi! link asciidocAttributeRef markdownH1
 hi! link asciidocBackslash Keyword
@@ -302,8 +253,8 @@ hi! link asciidocQuotedUnconstrainedBold asciidocQuotedBold
 hi! link asciidocQuotedUnconstrainedEmphasized asciidocQuotedEmphasized
 hi! link asciidocURL markdownLinkText
 
-call s:hi("awkCharClass", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("awkPatterns", s:lichen9_gui, "", s:lichen9_term, "", s:bold, "")
+call s:hi("awkCharClass", "", "", s:lichen7_term, "", "", "")
+call s:hi("awkPatterns", "", "", s:lichen9_term, "", s:bold, "")
 hi! link awkArrayElement Identifier
 hi! link awkBoolLogic Keyword
 hi! link awkBrktRegExp SpecialChar
@@ -319,20 +270,20 @@ hi! link awkSpecialCharacter SpecialChar
 hi! link awkSpecialPrintf SpecialChar
 hi! link awkVariables Identifier
 
-call s:hi("cIncluded", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("cIncluded", "", "", s:lichen7_term, "", "", "")
 hi! link cOperator Operator
 hi! link cPreCondit PreCondit
 
-call s:hi("cmakeGeneratorExpression", s:lichen10_gui, "", s:lichen10_term, "", "", "")
+call s:hi("cmakeGeneratorExpression", "", "", s:lichen10_term, "", "", "")
 
 hi! link csPreCondit PreCondit
 hi! link csType Type
 hi! link csXmlTag SpecialComment
 
-call s:hi("cssAttributeSelector", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("cssDefinition", s:lichen7_gui, "", s:lichen7_term, "", "NONE", "")
-call s:hi("cssIdentifier", s:lichen7_gui, "", s:lichen7_term, "", s:underline, "")
-call s:hi("cssStringQ", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("cssAttributeSelector", "", "", s:lichen7_term, "", "", "")
+call s:hi("cssDefinition", "", "", s:lichen7_term, "", "NONE", "")
+call s:hi("cssIdentifier", "", "", s:lichen7_term, "", s:underline, "")
+call s:hi("cssStringQ", "", "", s:lichen7_term, "", "", "")
 hi! link cssAttr Keyword
 hi! link cssBraces Delimiter
 hi! link cssClassName cssDefinition
@@ -342,44 +293,44 @@ hi! link cssPseudoClass cssDefinition
 hi! link cssPseudoClassId cssPseudoClass
 hi! link cssVendor Keyword
 
-call s:hi("dosiniHeader", s:lichen8_gui, "", s:lichen8_term, "", "", "")
+call s:hi("dosiniHeader", "", "", s:lichen8_term, "", "", "")
 hi! link dosiniLabel Type
 
-call s:hi("dtBooleanKey", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("dtExecKey", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("dtLocaleKey", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("dtNumericKey", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("dtTypeKey", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("dtBooleanKey", "", "", s:lichen7_term, "", "", "")
+call s:hi("dtExecKey", "", "", s:lichen7_term, "", "", "")
+call s:hi("dtLocaleKey", "", "", s:lichen7_term, "", "", "")
+call s:hi("dtNumericKey", "", "", s:lichen7_term, "", "", "")
+call s:hi("dtTypeKey", "", "", s:lichen7_term, "", "", "")
 hi! link dtDelim Delimiter
 hi! link dtLocaleValue Keyword
 hi! link dtTypeValue Keyword
 
 if g:lichen_uniform_diff_background == 0
-  call s:hi("DiffAdd", s:lichen14_gui, s:lichen0_gui, s:lichen14_term, "NONE", "inverse", "")
-  call s:hi("DiffChange", s:lichen13_gui, s:lichen0_gui, s:lichen13_term, "NONE", "inverse", "")
-  call s:hi("DiffDelete", s:lichen11_gui, s:lichen0_gui, s:lichen11_term, "NONE", "inverse", "")
-  call s:hi("DiffText", s:lichen9_gui, s:lichen0_gui, s:lichen9_term, "NONE", "inverse", "")
+  call s:hi("DiffAdd", "", "", s:lichen14_term, "NONE", "inverse", "")
+  call s:hi("DiffChange", "", "", s:lichen13_term, "NONE", "inverse", "")
+  call s:hi("DiffDelete", "", "", s:lichen11_term, "NONE", "inverse", "")
+  call s:hi("DiffText", "", "", s:lichen9_term, "NONE", "inverse", "")
 else
-  call s:hi("DiffAdd", s:lichen14_gui, s:lichen1_gui, s:lichen14_term, s:lichen1_term, "", "")
-  call s:hi("DiffChange", s:lichen13_gui, s:lichen1_gui, s:lichen13_term, s:lichen1_term, "", "")
-  call s:hi("DiffDelete", s:lichen11_gui, s:lichen1_gui, s:lichen11_term, s:lichen1_term, "", "")
-  call s:hi("DiffText", s:lichen9_gui, s:lichen1_gui, s:lichen9_term, s:lichen1_term, "", "")
+  call s:hi("DiffAdd", "", "", s:lichen14_term, s:lichen1_term, "", "")
+  call s:hi("DiffChange", "", "", s:lichen13_term, s:lichen1_term, "", "")
+  call s:hi("DiffDelete", "", "", s:lichen11_term, s:lichen1_term, "", "")
+  call s:hi("DiffText", "", "", s:lichen9_term, s:lichen1_term, "", "")
 endif
 " Legacy groups for official git.vim and diff.vim syntax
 hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
 
-call s:hi("gitconfigVariable", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("gitconfigVariable", "", "", s:lichen7_term, "", "", "")
 
-call s:hi("goBuiltins", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("goBuiltins", "", "", s:lichen7_term, "", "", "")
 hi! link goConstants Keyword
 
-call s:hi("helpBar", s:lichen3_gui, "", s:lichen3_term, "", "", "")
-call s:hi("helpHyperTextJump", s:lichen8_gui, "", s:lichen8_term, "", s:underline, "")
+call s:hi("helpBar", "", "", s:lichen3_term, "", "", "")
+call s:hi("helpHyperTextJump", "", "", s:lichen8_term, "", s:underline, "")
 
-call s:hi("htmlArg", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("htmlLink", s:lichen4_gui, "", "", "", "NONE", "NONE")
+call s:hi("htmlArg", "", "", s:lichen7_term, "", "", "")
+call s:hi("htmlLink", "", "", "", "", "NONE", "NONE")
 hi! link htmlBold Bold
 hi! link htmlEndTag htmlTag
 hi! link htmlItalic Italic
@@ -393,15 +344,15 @@ hi! link htmlSpecialChar SpecialChar
 hi! link htmlTag Keyword
 hi! link htmlTagN htmlTag
 
-call s:hi("javaDocTags", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("javaDocTags", "", "", s:lichen7_term, "", "", "")
 hi! link javaCommentTitle Comment
 hi! link javaScriptBraces Delimiter
 hi! link javaScriptIdentifier Keyword
 hi! link javaScriptNumber Number
 
-call s:hi("jsonKeyword", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("jsonKeyword", "", "", s:lichen7_term, "", "", "")
 
-call s:hi("lessClass", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("lessClass", "", "", s:lichen7_term, "", "", "")
 hi! link lessAmpersand Keyword
 hi! link lessCssAttribute Delimiter
 hi! link lessFunction Function
@@ -415,15 +366,15 @@ hi! link lispFunc Function
 
 hi! link luaFunc Function
 
-call s:hi("markdownBlockquote", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("markdownCode", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("markdownCodeDelimiter", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("markdownFootnote", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("markdownId", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("markdownIdDeclaration", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("markdownH1", s:lichen8_gui, "", s:lichen8_term, "", "", "")
-call s:hi("markdownLinkText", s:lichen8_gui, "", s:lichen8_term, "", "", "")
-call s:hi("markdownUrl", s:lichen4_gui, "", "NONE", "", "NONE", "")
+call s:hi("markdownBlockquote", "", "", s:lichen7_term, "", "", "")
+call s:hi("markdownCode", "", "", s:lichen7_term, "", "", "")
+call s:hi("markdownCodeDelimiter", "", "", s:lichen7_term, "", "", "")
+call s:hi("markdownFootnote", "", "", s:lichen7_term, "", "", "")
+call s:hi("markdownId", "", "", s:lichen7_term, "", "", "")
+call s:hi("markdownIdDeclaration", "", "", s:lichen7_term, "", "", "")
+call s:hi("markdownH1", "", "", s:lichen8_term, "", "", "")
+call s:hi("markdownLinkText", "", "", s:lichen8_term, "", "", "")
+call s:hi("markdownUrl", "", "", "NONE", "", "NONE", "")
 hi! link markdownBold Bold
 hi! link markdownBoldDelimiter Keyword
 hi! link markdownFootnoteDefinition markdownFootnote
@@ -441,25 +392,25 @@ hi! link markdownListMarker Keyword
 hi! link markdownRule Keyword
 hi! link markdownHeadingDelimiter Keyword
 
-call s:hi("perlPackageDecl", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("perlPackageDecl", "", "", s:lichen7_term, "", "", "")
 
-call s:hi("phpClasses", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("phpClass", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("phpDocTags", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("phpClasses", "", "", s:lichen7_term, "", "", "")
+call s:hi("phpClass", "", "", s:lichen7_term, "", "", "")
+call s:hi("phpDocTags", "", "", s:lichen7_term, "", "", "")
 hi! link phpDocCustomTags phpDocTags
 hi! link phpMemberSelector Keyword
 hi! link phpMethod Function
 hi! link phpFunction Function
 
-call s:hi("podCmdText", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("podVerbatimLine", s:lichen4_gui, "", "NONE", "", "", "")
+call s:hi("podCmdText", "", "", s:lichen7_term, "", "", "")
+call s:hi("podVerbatimLine", "", "", "NONE", "", "", "")
 hi! link podFormat Keyword
 
 hi! link pythonBuiltin Type
 hi! link pythonEscape SpecialChar
 
-call s:hi("rubyConstant", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("rubySymbol", s:lichen6_gui, "", s:lichen6_term, "", s:bold, "")
+call s:hi("rubyConstant", "", "", s:lichen7_term, "", "", "")
+call s:hi("rubySymbol", "", "", s:lichen6_term, "", s:bold, "")
 hi! link rubyAttribute Identifier
 hi! link rubyBlockParameterList Operator
 hi! link rubyInterpolationDelimiter Keyword
@@ -468,20 +419,20 @@ hi! link rubyLocalVariableOrMethod Function
 hi! link rubyPseudoVariable Keyword
 hi! link rubyRegexp SpecialChar
 
-call s:hi("rustAttribute", s:lichen10_gui, "", s:lichen10_term, "", "", "")
-call s:hi("rustEnum", s:lichen7_gui, "", s:lichen7_term, "", s:bold, "")
-call s:hi("rustMacro", s:lichen8_gui, "", s:lichen8_term, "", s:bold, "")
-call s:hi("rustModPath", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("rustPanic", s:lichen9_gui, "", s:lichen9_term, "", s:bold, "")
-call s:hi("rustTrait", s:lichen7_gui, "", s:lichen7_term, "", s:italic, "")
+call s:hi("rustAttribute", "", "", s:lichen10_term, "", "", "")
+call s:hi("rustEnum", "", "", s:lichen7_term, "", s:bold, "")
+call s:hi("rustMacro", "", "", s:lichen8_term, "", s:bold, "")
+call s:hi("rustModPath", "", "", s:lichen7_term, "", "", "")
+call s:hi("rustPanic", "", "", s:lichen9_term, "", s:bold, "")
+call s:hi("rustTrait", "", "", s:lichen7_term, "", s:italic, "")
 hi! link rustCommentLineDoc Comment
 hi! link rustDerive rustAttribute
 hi! link rustEnumVariant rustEnum
 hi! link rustEscape SpecialChar
 hi! link rustQuestionMark Keyword
 
-call s:hi("sassClass", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("sassId", s:lichen7_gui, "", s:lichen7_term, "", s:underline, "")
+call s:hi("sassClass", "", "", s:lichen7_term, "", "", "")
+call s:hi("sassId", "", "", s:lichen7_term, "", s:underline, "")
 hi! link sassAmpersand Keyword
 hi! link sassClassChar Delimiter
 hi! link sassControl Keyword
@@ -504,16 +455,16 @@ hi! link shDerefVar Identifier
 hi! link sqlKeyword Keyword
 hi! link sqlSpecial Keyword
 
-call s:hi("vimAugroup", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("vimMapRhs", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("vimNotation", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("vimAugroup", "", "", s:lichen7_term, "", "", "")
+call s:hi("vimMapRhs", "", "", s:lichen7_term, "", "", "")
+call s:hi("vimNotation", "", "", s:lichen7_term, "", "", "")
 hi! link vimFunc Function
 hi! link vimFunction Function
 hi! link vimUserFunc Function
 
-call s:hi("xmlAttrib", s:lichen7_gui, "", s:lichen7_term, "", "", "")
-call s:hi("xmlCdataStart", s:lichen3_gui_bright, "", s:lichen3_term, "", s:bold, "")
-call s:hi("xmlNamespace", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("xmlAttrib", "", "", s:lichen7_term, "", "", "")
+call s:hi("xmlCdataStart", "", "", s:lichen3_term, "", s:bold, "")
+call s:hi("xmlNamespace", "", "", s:lichen7_term, "", "", "")
 hi! link xmlAttribPunct Delimiter
 hi! link xmlCdata Comment
 hi! link xmlCdataCdata xmlCdataStart
@@ -522,6 +473,6 @@ hi! link xmlEndTag xmlTagName
 hi! link xmlProcessingDelim Keyword
 hi! link xmlTagName Keyword
 
-call s:hi("yamlBlockMappingKey", s:lichen7_gui, "", s:lichen7_term, "", "", "")
+call s:hi("yamlBlockMappingKey", "", "", s:lichen7_term, "", "", "")
 hi! link yamlBool Keyword
 hi! link yamlDocumentStart Keyword
