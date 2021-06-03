@@ -11,6 +11,14 @@ Below are screenshot examples of what lichen might look like using different lan
 
 ![lichen color scheme with a Node.js file](/assets/lichen-node.png)
 
+## JSON
+
+![lichen color scheme with a JSON file](/assets/lichen-json.png)
+
+## YAML
+
+![lichen color scheme with a YAML file](/assets/lichen-yaml.png)
+
 ## Ruby
 
 ![lichen color scheme with a Ruby file](/assets/lichen-ruby.png)
